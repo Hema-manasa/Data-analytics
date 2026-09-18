@@ -1,53 +1,71 @@
-# Day 3 — Data Cleaning in Excel
+# Day 3 — Real-World Data Cleaning
+
+## Dataset
+
+Worked with a realistic e-commerce dataset containing:
+
+- 122 rows
+- 7 original columns
+- Customer, Product, Category, Quantity, Price, City, and Date data
 
 ## Topics Learned
 
-- Identifying data quality issues
-- Inconsistent text values
-- Missing values
-- Duplicate records
-- Data validation
-- Creating calculated fields
-- Preparing data for analysis
+### Large Dataset Inspection
 
-## Practice
+- Learned how to inspect a dataset before cleaning
+- Converted raw data into an Excel Table
+- Used filters to identify data-quality issues
 
-Created a deliberately messy sales dataset and practiced cleaning it.
+### Missing Values
 
-### Data Quality Issues Identified
+- Used filters to locate missing values
+- Learned `ISBLANK()` with `IF()`
+- Learned that missing values should not automatically be replaced with zero
+- Investigated missing Quantity and Customer values instead of guessing
 
-- Inconsistent capitalization in Product
-- Inconsistent capitalization in Category
-- Inconsistent capitalization in City
-- Missing Quantity value
-- Duplicate records
+### Text Cleaning
 
-### Cleaning Performed
+Learned:
 
-- Standardized `t-shirt` to `T-Shirt`
-- Standardized `footwear` to `Footwear`
-- Standardized `chennai` to `Chennai`
-- Filled the missing Quantity after confirmation
-- Removed duplicate records using Excel's Remove Duplicates tool
-- Checked for negative, zero, and unusual values
-- Verified date consistency
+- `TRIM()` — removes unnecessary spaces
+- `PROPER()` — standardizes capitalization
+- Combining functions such as `PROPER(TRIM())`
+- When `PROPER()` should not be used blindly
+- Used helper columns to preserve the original data
 
-### Cleaned Dataset
+### Duplicate Detection
 
-- Rows remaining: 8
-- Total Quantity: 17
-- Total Revenue: ₹16,500
-- Highest Single-Order Revenue: ₹4,500
+- Learned that repeated customers are not necessarily duplicates
+- Created a Record ID using multiple fields
+- Used `COUNTIF()` to identify repeated records
+- Investigated duplicates before removing them
+- Created a `Clean_Data` copy while preserving `Raw_Data`
+- Removed confirmed duplicate records
+- Validated that the remaining records were unique
 
-### Product Revenue
+### Number Validation
 
-- T-Shirt: ₹3,500
-- Shoes: ₹9,000
-- Bag: ₹1,600
-- Jeans: ₹2,400
+- Used `ISNUMBER()` to check whether values are stored as numbers
+- Distinguished missing values from numbers stored as text
+- Verified Quantity and Price data types
 
 ## Key Learning
 
-Data should be inspected and cleaned before analysis. Missing values should not automatically be treated as zero, and duplicate records should be verified before removal.
+Data cleaning is not simply changing or deleting values.
 
-Cleaning poor-quality data can affect the accuracy of analysis and business insights.
+The workflow is:
+
+**Inspect → Detect → Investigate → Clean → Validate**
+
+Missing information should not be guessed, and duplicate records should be verified before removal.
+
+## Progress
+
+Data cleaning is still in progress.
+
+Next topics:
+
+- Numeric value validation
+- Date validation and cleaning
+- Additional data-quality checks
+- Final cleaning validation
